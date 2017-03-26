@@ -43,7 +43,8 @@ public class ReadData {
 			//opens and reads requested file
 			FileReader fileReader = new FileReader(file);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			Double total = Double.parseDouble(bufferedReader.readLine());
+			String[] input = bufferedReader.readLine().split(",");
+			Double total = Double.parseDouble(input[4]);
 			
 			//provincial total
 			this.value.add(0,total);
@@ -61,7 +62,8 @@ public class ReadData {
 				
 				this.data.addEdge(BC_ind, SC_ind);
 				
-				Double sum = Double.parseDouble(line);
+				input = line.split(",");
+				Double sum = Double.parseDouble(input[4]);
 				this.value.add(i,sum);					
 				
 				String line2; //value of sub-categories
@@ -71,7 +73,8 @@ public class ReadData {
 					this.index_list.add(i);
 					
 					this.data.addEdge(BC_ind, SC_ind);
-					double current_val = Double.parseDouble(line2);
+					input = line2.split(",");
+					double current_val = Double.parseDouble(input[4]);
 					this.value.add(i,current_val);
 					sum -= current_val;			
 				}
