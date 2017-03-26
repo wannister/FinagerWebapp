@@ -20,9 +20,11 @@ public class Ratio {
 	public double getIncome(){
 		return this.income;
 	}
+
 	public double getSaving(){
 		return this.saving;
 	}
+
 	public double getUser(){
 		return this.user;
 	}
