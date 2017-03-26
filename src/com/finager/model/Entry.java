@@ -1,4 +1,4 @@
-package finager;
+package com.finager.model;
 
 import java.io.*;
 import java.util.Arrays;
@@ -17,7 +17,7 @@ public class Entry {
 
 	}
 
-	Entry(double Selectyear) throws IOException {
+	public Entry(double Selectyear) throws IOException {
 
 		this.selectyear = Selectyear;
 		PrintWriter clear = new PrintWriter(csv);
@@ -88,7 +88,7 @@ public class Entry {
 	}
 
 	public static void main(String[] args) throws IOException {
-		Entry A = new Entry(2016);
-		A.EntryIO();
+		//Entry A = new Entry(2016);
+		//A.EntryIO();
 	}
 }

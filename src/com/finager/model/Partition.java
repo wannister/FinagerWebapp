@@ -1,4 +1,4 @@
-package finager;
+package com.finager.model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,7 +21,7 @@ public class Partition {
 
 	}
 
-	Partition(double year) throws IOException {
+	public Partition(double year) throws IOException {
 		this.year = year;
 		Entry A = new Entry(year);
 		A.EntryIO();
@@ -58,8 +58,8 @@ public class Partition {
 	}
 
 	public static void main(String[] args) throws IOException {
-		Partition test1 = new Partition(2018);// TODO Auto-generated method stub
-		test1.Partition_IO();
+		//Partition test1 = new Partition(2018);// TODO Auto-generated method stub
+		//test1.Partition_IO();
 	}
 
 }
