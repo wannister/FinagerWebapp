@@ -2,9 +2,71 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Finager</title>
+<title>Finager App</title>
 </head>
 <body>
+	<h1 align="center">User information page</h1>
+	<form method="POST" action="Tabular.do">
+		<p>
+			Provinces or Territories: 
+			<select name="prov" size="1">
+				<option>Alberta</option>
+				<option>British Columbia</option>
+				<option>Manitoba</option>
+				<option>New Brunswick</option>
+				<option>Newfoundland and Labrador</option>
+				<option>Northwest Territories</option>
+				<option>Nova Scotia</option>
+				<option>Nunavut</option>
+				<option>Ontario</option>
+				<option>Prince Edward Island</option>
+				<option>Quebec</option>
+				<option>Saskatchewan</option>
+				<option>Yukon</option>
+				<option>      ------</option>
+			</select> 
+			<br><br>
+			Year: <input type="text" name ="year">
+			<br><br>
+			Income: <input type="text" name ="income">
+			<br><br>
+			Saving: <input type="text" name ="saving">
+			<br><br><br><br>
+			Preferences Option:
+			<br><br>
+			Food and non-alcoholic beverages:
+			<input type="range" step="0.01" min="0" max="1" name ="pref0">
+			<br> Alcoholic beverages and tobacco:
+			<input type="range" step="0.01" min="0" max="1" name ="pref1">
+			<br> Clothing and footwear:
+			<input type="range" step="0.01" min="0" max="1" name ="pref2">
+			<br> Housing, water, electricity, gas and other fuels:
+			<input type="range" step="0.01" min="0" max="1" name ="pref3">
+			<br> Furnishings, household equipment and other goods and services related to the dwelling and property:
+			<input type="range" step="0.01" min="0" max="1" name ="pref4">
+			<br> Health:
+			<input type="range" step="0.01" min="0" max="1" name ="pref5">
+			<br> Transport:
+			<input type="range" step="0.01" min="0" max="1" name ="pref6">
+			<br> Communications:
+			<input type="range" step="0.01" min="0" max="1" name ="pref7">
+			<br> Recreation and culture:
+			<input type="range" step="0.01" min="0" max="1" name ="pref8">
+			<br> Education:
+			<input type="range" step="0.01" min="0" max="1" name ="pref9">
+			<br> Food, beverage and accommodation services:
+			<input type="range" step="0.01" min="0" max="1" name ="pref10">
+			<br> Insurance and financial services:
+			<input type="range" step="0.01" min="0" max="1" name ="pref11">
+			<br> Miscellaneous goods and services:
+			<input type="range" step="0.01" min="0" max="1" name ="pref12">
+			<br> Net expenditure abroad:
+			<input type="range" step="0.01" min="0" max="1" name ="pref13">
+		<center>
+		    <br> <br>
+			<input type="SUBMIT">
+		</center>
+	</form>
 
 </body>
 </html>
