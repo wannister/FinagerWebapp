@@ -5,7 +5,7 @@ package com.finager.model;
 public class Prefer {
 	Double[] pref;
 	ReadData rd;
-	public Preference(Double[] user, ReadData read){
+	public Prefer(Double[] user, ReadData read){
 		pref = user;
 		rd = read;
 		Replace();
