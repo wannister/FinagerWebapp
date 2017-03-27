@@ -53,6 +53,9 @@ public class TabGener {
 		Double new_val = prefs.Value(c);
 		Double k_pref = old_val / new_val;
 		
+		//insert the overall value at the front
+		result.add(0, new_val);
+		
 		//adjust by user input
 		for (int i = 0; i < result.size(); i++) {
 			Double item = result.get(i);
@@ -74,7 +77,7 @@ public class TabGener {
 		//example run
 		TabGener run = new TabGener("Ontario",2016,50000,10000,input);
 		//12 blocks in total
-		System.out.println(run.block(12));
+		System.out.println(run.block(0));
 	}
 
 }
