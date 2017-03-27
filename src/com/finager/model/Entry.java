@@ -11,14 +11,14 @@ public class Entry {
 	double[] expenditure = new double[50];
 	double selectyear;
 	String[] information = new String[4];
-	File csv = new File("data/" + "predict" + ".csv");
+	File csv;
 
 	Entry() {
 
 	}
 
 	public Entry(double Selectyear) throws IOException {
-
+		csv = new File("data/" + "predict" + ".csv");
 		this.selectyear = Selectyear;
 		PrintWriter clear = new PrintWriter(csv);
 		clear.close();
