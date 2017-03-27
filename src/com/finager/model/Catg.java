@@ -10,9 +10,8 @@ import java.util.Map;
 public class Catg {
 	File csv;
 	static Map<Integer, String> match = new HashMap<Integer, String>();
+	
 	public Catg() throws IOException{
-		Partition A = new Partition(2016);//autorun the partition module 
-		A.Partition_IO();//and get the csv files for catg.
 		this.csv = new File("data/Canada.csv");
 		
 	}

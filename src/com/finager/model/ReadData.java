@@ -64,33 +64,42 @@ public class ReadData {
 			int BC_ind = 0; //big category index
 			
 			while ((line = bufferedReader.readLine()) != null) {
+				//increment BC and i together
+				i++; BC_ind++;
 				
-				i++;
+				//add the index to the lsit
 				this.index_list.add(i);				
-				int SC_ind = 0; //small category index
 				
-				this.data.addEdge(BC_ind, SC_ind);
-				
+				//split the line
 				input = line.split(",");
+				//get the value of the sum
 				Double sum = Double.parseDouble(input[4]);
+				//store value into the list
 				this.value.add(i,sum);					
 				
 				String line2; //value of sub-categories
 				
 				while(Math.floor(Math.abs(sum))!=0.0){
 					line2 = bufferedReader.readLine();
-					SC_ind++;
+					//only increment i
 					i++;
-					
-					this.data.addEdge(BC_ind, SC_ind);
+				
+					//split the line
 					input = line2.split(",");
+					//get the value of line
 					double current_val = Double.parseDouble(input[4]);
+					//store into the value vector
 					this.value.add(i,current_val);
+					
+					//if the line is not big category
+					if (sum != current_val){
+						this.data.addEdge(BC_ind, i);
+					}
 					sum -= current_val;
 					
 				}
-				SC_ind = 0; //restore small category index
-				BC_ind++; //move on to next big category
+				//jump the BC to i position
+				BC_ind=i;
 			}
 			fileReader.close();
 		} catch (IOException e) {

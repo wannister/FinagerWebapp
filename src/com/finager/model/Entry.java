@@ -44,6 +44,9 @@ public class Entry {
 			if (item[item.length - 4].contains("Expenditure by"))// skip the expenditure
 				continue;										// not related with
 																//the province
+			
+			if (item[item.length - 4].contains("Net expen"))
+				continue;
 				
 			if (Double.parseDouble(item[0]) > checker) { // add the elements to
 															// an array if the

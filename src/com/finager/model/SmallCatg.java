@@ -10,58 +10,29 @@ import edu.princeton.cs.algs4.Digraph;
 
 public class SmallCatg {
 
-	private static String user_prov;
-	private static double income;
-	private static double saving;
-	private static double[] pre;
-
+	private ReadData rd;
 	
-	public static Vector<Double> smaller(int v){
+	public SmallCatg(ReadData rd){
+		this.rd = rd;
+	}
+	
+	public Vector<Double> smaller(int v){
+		//create a variable to store the result
+		Vector<Double> result = new Vector<Double>();
 		
-		ReadData rd = new ReadData(user_prov);
+		//get the graph of the data
 		Digraph g = rd.Graph();
+		//get the value of the data
 		Vector<Double> vo = rd.Value();
-	
 		
-		//Prefer p = new Prefer(pre, rd);
-		double k = -1;
-		int c = 0;
-        for (int w : g.adj(0)) {
-        	
-			if(w == v){
-				
-			//k = vo.get(w)/ rd.Value();
-			
-			System.out.println(k);
-			
-			}
-			else
-				c++;
-        }
-		
-       
-		Vector<Double> smallCatg = new Vector<Double>();
-		for (int w : g.adj(v)) {
-			
-			smallCatg.addElement(vo.get(w) * k);
-			
-        }
-		return smallCatg;
+		//for all adjacent nodes of big category
+		Iterable<Integer> small = g.adj(v);
+		for (Integer item:small){
+			//store the value of small category
+			result.add(vo.get(item));
+		}
+		return result;
 	}
 	
-	public static int size(int i){
-		return smaller(i).size();
-	}
-	
-	public static void main(String[] args){
-		user_prov = "Canada";
-		income = 1000;
-		saving = 100;
-		
-		System.out.println(smaller(1).get(0));
-		System.out.println(smaller(1).get(1));
-		System.out.println(size(0));
-		
-	}
 
 }
