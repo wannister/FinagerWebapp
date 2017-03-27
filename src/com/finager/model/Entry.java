@@ -35,10 +35,16 @@ public class Entry {
 			if (item[2].contains("2007"))// skip the prices in 2007
 				continue;
 			// first column
-			if (item[item.length-2].contains("15."))//skip the outside canada line
+			if (item[item.length - 2].contains("15."))// skip the outside canada
+														// line
 				continue;
-			if (item[item.length-2].contains("16."))//skip the outside canada line
+			if (item[item.length - 2].contains("16."))// skip the outside canada
+														// line
 				continue;
+			if (item[item.length - 4].contains("Expenditure by"))// skip the expenditure
+				continue;										// not related with
+																//the province
+				
 			if (Double.parseDouble(item[0]) > checker) { // add the elements to
 															// an array if the
 															// year is
@@ -81,14 +87,14 @@ public class Entry {
 	public void writetofile() throws IOException {
 		BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true)); //
 		bw.write(selectyear + "," + information[0] + "," + information[1] + ","
-				+ information[2].substring(1, information[2].length()) + "," + predict()+ "," + information[3]);
+				+ information[2].substring(1, information[2].length()) + "," + predict() + "," + information[3]);
 		bw.newLine();
 		bw.close();
 
 	}
 
-	public static void main(String[] args) throws IOException {
-		//Entry A = new Entry(2016);
-		//A.EntryIO();
-	}
+	/*public static void main(String[] args) throws IOException {
+		Entry A = new Entry(2016);
+		A.EntryIO();
+	}*/
 }
