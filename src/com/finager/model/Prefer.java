@@ -12,15 +12,15 @@ public class Prefer {
 		DataRevised();
 	}
 	public Double Value(int catg){
-		
+		return rd.Value().get(catg);
 	}
 	private void Replace(){
 		for(int i = 0; i<pref.length;i++){
-			pref [i] = pref [i] * rd.Value().elementAt(index); //how to retrive this
+			pref [i] = pref [i] * rd.Value().get(i); //how to retrieve this
 		}
 	}
 	private void DataRevised(){
-		double oldData = 0; //how to retrive this
+		//-----double oldData = rd.Value().; //how to retrieve this
 		double newData = 0;
 		for (double entry : pref) {
 		    newData += entry;
