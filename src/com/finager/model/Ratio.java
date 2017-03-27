@@ -32,7 +32,7 @@ public class Ratio {
 	public double overall(){
 		
 		ReadData rd = new ReadData(user_prov);
-		Vector<Double> v = rd.value();
+		Vector<Double> v = rd.Value();
 		double overall = v.get(0);
 		return overall;
 	}

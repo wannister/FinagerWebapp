@@ -25,6 +25,7 @@ public class Prefer {
 		for (double entry : pref) {
 		    newData += entry;
 		}
+		double oldData = 0;
 		double kRatio = oldData / newData;
 		for(int i = 0; i<pref.length; i++){
 			pref[i] = pref[i]*kRatio;

@@ -19,18 +19,18 @@ public class SmallCatg {
 	public static Vector<Double> smaller(int v){
 		
 		ReadData rd = new ReadData(user_prov);
-		Digraph g = rd.graph();
-		Vector<Double> vo = rd.value();
+		Digraph g = rd.Graph();
+		Vector<Double> vo = rd.Value();
 	
 		
-		Prefer p = new Prefer(pre, rd);
+		//Prefer p = new Prefer(pre, rd);
 		double k = -1;
 		int c = 0;
         for (int w : g.adj(0)) {
         	
 			if(w == v){
 				
-			k = vo.get(w)/ p.value(c);
+			//k = vo.get(w)/ rd.Value();
 			
 			System.out.println(k);
 			

@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Vector;
 
+import edu.princeton.cs.algs4.Digraph;
+
 
 public class ReadData {
 	private String user_prov;
@@ -37,6 +39,11 @@ public class ReadData {
 		return this.index_list.elementAt(index);
 	}
 	
+	//getter
+	public Vector<Integer> indexes(){
+		return index_list;
+	}
+	
 	private void Read(){
 		try {
 			File file = new File("data/" + this.user_prov + ".csv");
@@ -57,6 +64,7 @@ public class ReadData {
 			int BC_ind = 0; //big category index
 			
 			while ((line = bufferedReader.readLine()) != null) {
+				
 				i++;
 				this.index_list.add(i);				
 				int SC_ind = 0; //small category index
@@ -68,16 +76,18 @@ public class ReadData {
 				this.value.add(i,sum);					
 				
 				String line2; //value of sub-categories
-				while(((line2 = bufferedReader.readLine()) != null) & Math.floor(sum)!=0){
+				
+				while(Math.floor(Math.abs(sum))!=0.0){
+					line2 = bufferedReader.readLine();
 					SC_ind++;
 					i++;
-					this.index_list.add(i);
 					
 					this.data.addEdge(BC_ind, SC_ind);
 					input = line2.split(",");
 					double current_val = Double.parseDouble(input[4]);
 					this.value.add(i,current_val);
-					sum -= current_val;			
+					sum -= current_val;
+					
 				}
 				SC_ind = 0; //restore small category index
 				BC_ind++; //move on to next big category
