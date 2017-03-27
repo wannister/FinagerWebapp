@@ -39,11 +39,12 @@ public class ReadData {
 	
 	private void Read(){
 		try {
-			File file = new File(this.user_prov + ".csv");
+			File file = new File("data/" + this.user_prov + ".csv");
 			//opens and reads requested file
 			FileReader fileReader = new FileReader(file);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			String[] input = bufferedReader.readLine().split(",");
+			
 			Double total = Double.parseDouble(input[4]);
 			
 			//provincial total
@@ -89,10 +90,10 @@ public class ReadData {
 	}
 	/*
 	public static void main(String [] args){
-		ReadData f = new ReadData("ontario");
+		ReadData f = new ReadData("Ontario");
 		System.out.println(f.value);
-		System.out.println(f.Index2Catg(0));
-		System.out.println(f.Catg2Index(5));
+		//System.out.println(f.Index2Catg(0));
+		//System.out.println(f.Catg2Index(5));
 	}
 	*/
 
