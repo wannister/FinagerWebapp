@@ -4,7 +4,13 @@ import java.io.*;
 import java.util.Arrays;
 
 import edu.princeton.cs.algs4.LinearRegression;
-
+/**
+ * Constructor: Vector<String>
+ * 
+ * Method:
+ * @author mina
+ *
+ */
 public class Entry {
 	double[] realyear, realexpenditure;
 	double[] year = new double[50];

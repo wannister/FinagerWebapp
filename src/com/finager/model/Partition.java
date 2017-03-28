@@ -1,12 +1,18 @@
 package com.finager.model;
 
 import java.io.BufferedReader;
+
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Constructor:
+ * @author mina
+ *
+ */
 public class Partition {
 	double year;
 	double[] household = { 13320610, 208845, 56460, 390280, 314010, 3395340, 4887510, 466140, 409645, 1390275, 1764635,

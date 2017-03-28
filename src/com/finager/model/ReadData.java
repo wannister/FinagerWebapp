@@ -8,7 +8,11 @@ import java.util.Vector;
 
 import edu.princeton.cs.algs4.Digraph;
 
-
+/**
+ * Constructor:
+ * @author mina
+ *
+ */
 public class ReadData {
 	private String user_prov;
 	private Digraph data;

@@ -67,7 +67,6 @@ public class UserInput extends HttpServlet{
 		//check if the size matches the original file
 		System.out.println(lines.size());
 
-
 		
 		request.setAttribute("block", result);
 		RequestDispatcher view = request.getRequestDispatcher("table.jsp");
