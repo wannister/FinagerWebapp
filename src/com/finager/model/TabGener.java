@@ -20,11 +20,6 @@ public class TabGener {
 				Partition pat = new Partition(year);
 				pat.Partition_IO();
 				
-				//create a map which used to match
-				// String of category -> Integer
-				Catg catg = new Catg();
-				catg.match();
-				
 				//read data from Ontario
 				f = new ReadData(prov);
 	

@@ -18,7 +18,7 @@ public class Entry {
 	}
 
 	public Entry(double Selectyear) throws IOException {
-		csv = new File("/data/" + "predict" + ".csv");
+		csv = new File("data/"+"predict" + ".csv");
 		this.selectyear = Selectyear;
 		PrintWriter clear = new PrintWriter(csv);
 		clear.close();

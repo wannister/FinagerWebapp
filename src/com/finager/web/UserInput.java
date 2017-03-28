@@ -49,8 +49,21 @@ public class UserInput extends HttpServlet{
 		}
 		
 		//TabGener run = new TabGener("Ontario",2016,50000,10000,input);
-		File csv = new File("/data/" + "predict" + ".csv");
-		PrintWriter clear = new PrintWriter(csv);
+		
+		//test for reading the file test.txt
+		response.setContentType("text/html");
+		PrintWriter pw = response.getWriter();
+		ServletContext cntxt = getServletContext();
+		String fName = "/WEB-INF/test.txt";
+		InputStream ins = cntxt.getResourceAsStream(fName);
+		//start reading file
+		BufferedReader br = new BufferedReader((new InputStreamReader(ins)));
+		String word;
+		while((word= br.readLine())!= null){
+			System.out.println(word);
+		}
+
+
 		
 		request.setAttribute("block", result);
 		RequestDispatcher view = request.getRequestDispatcher("table.jsp");
