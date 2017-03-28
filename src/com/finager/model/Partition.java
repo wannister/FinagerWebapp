@@ -9,7 +9,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Constructor:
+ * Constructor:Vector<String> containing only data
+ * 				after predicting future value, String prov
+ * 
+ * Excepted output: Vector<String> containing only data
+ * 					from user province
  * @author mina
  *
  */

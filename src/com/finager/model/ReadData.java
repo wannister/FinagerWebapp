@@ -9,7 +9,9 @@ import java.util.Vector;
 import edu.princeton.cs.algs4.Digraph;
 
 /**
- * Constructor:
+ * Constructor:Vector<String> containing only data 
+ * 				from user province
+ * 
  * @author mina
  *
  */

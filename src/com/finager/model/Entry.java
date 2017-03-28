@@ -5,9 +5,10 @@ import java.util.Arrays;
 
 import edu.princeton.cs.algs4.LinearRegression;
 /**
- * Constructor: Vector<String>
+ * Constructor: Vector<String>, year
  * 
- * Method:
+ * Excepted output: Vector<String> with predicting data
+ * 
  * @author mina
  *
  */

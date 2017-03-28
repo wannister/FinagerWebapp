@@ -50,6 +50,13 @@ public class UserInput extends HttpServlet{
 		
 		//TabGener run = new TabGener("Ontario",2016,50000,10000,input);
 		
+		/*      //Do not work
+		String f = "/WEB-INF/expenditure.csv";
+		File file = new File(f);
+		PrintWriter clear = new PrintWriter(f);
+		clear.close();*/
+		
+		
 		//Read the data from expenditure.csv
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
