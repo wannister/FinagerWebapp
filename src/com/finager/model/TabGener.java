@@ -82,13 +82,12 @@ public class TabGener {
 
 		// adjust by user input
 		for (int i = 0; i <= result; i++) {
-			String item = f.CatgNames().elementAt(inx+i);
-			item = item.substring(0,item.length()-1);
+			String item = f.CatgNames().elementAt(inx + i);
+			item = item.substring(0, item.length() - 1);
 			// set the value back
 			name.add(i, item);
 		}
 		return name;
-		//
 	}
 
 	// test all modules together
