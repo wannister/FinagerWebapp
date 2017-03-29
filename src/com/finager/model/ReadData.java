@@ -131,7 +131,7 @@ public class ReadData {
 		String[] total = this.prov_info.elementAt(0).split(",");
 		
 		//retrieve and parse provincial total
-		Double final_val = Double.parseDouble(total[4]);
+		Double final_val = Double.parseDouble(total[1]);
 		
 		//stores provincial total
 		this.value.add(0,final_val);
@@ -151,7 +151,7 @@ public class ReadData {
 			//split the line
 			String[] input = line.split(",");
 			//get the value of the sum
-			Double sum = Double.parseDouble(input[4]);
+			Double sum = Double.parseDouble(input[1]);
 			//store value into the list
 			this.value.add(i,sum);					
 			
@@ -165,7 +165,7 @@ public class ReadData {
 				//split the line
 				input = line2.split(",");
 				//get the value of line
-				double current_val = Double.parseDouble(input[4]);
+				double current_val = Double.parseDouble(input[1]);
 				//store into the value vector
 				this.value.add(i,current_val);
 				

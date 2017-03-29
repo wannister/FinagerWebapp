@@ -1,5 +1,7 @@
 package com.finager.model;
 
+import java.io.*;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Vector;
@@ -15,23 +17,29 @@ public class TabGener {
 	private SmallCatg sc;
 	
 	
-	public TabGener(Vector<String> prov, int year, int income, int saving, Double[] pref) throws IOException{
+	public TabGener(Vector<String> data, String prov, Double year, Double income, Double saving, Double[] pref){
+		
+		Entry a = new Entry(data,year);
+		a.readvector();
+		Vector<String> d2 = a.getoutput();
+		
 		//partition the data set, omit unnecessary data
-				//predict the future value
-				Partition pat = new Partition(year);
-				pat.Partition_IO();
-				
-				//read data from Ontario
-				f = new ReadData(prov);
+		Partition pat = new Partition(d2,prov);
+		pat.Partition_IO();
+		Vector<String> d3 = pat.partitionoutput();
+		
+		
+		//read data from Ontario
+		//f = new ReadData(d3);
 	
-				//generate income matching ratio
-				k_income = new Ratio(income,saving,f);
+		//generate income matching ratio
+		k_income = new Ratio(income,saving,f);
 				
-				//generate data by user preferences
-				prefs = new Prefer(pref, f);
+		//generate data by user preferences
+		prefs = new Prefer(pref, f);
 				
-				//generate small category based on big category
-				sc = new SmallCatg(f);
+		//generate small category based on big category
+		sc = new SmallCatg(f);
 	}
 	
 	public Vector<Double> block(int c){
@@ -64,7 +72,7 @@ public class TabGener {
 		return result;
 	}
 	
-	
+	//test all modules together
 	public static void main(String[] args) throws IOException{
 		Double[] input = new Double[13];
 		for (int i = 0; i < input.length; i++) {
@@ -75,18 +83,34 @@ public class TabGener {
 		
 		//readData fake data
 		Vector<String> trial = new Vector<String>();
-		trial.add("1981,Ontario,Current prices,Health insurance ,196.8,v62785314,7.1.90");
-		trial.add("1981,Ontario,Current prices,Health insurance ,96.8,v62785315,7.1.90");
-		trial.add("1981,Ontario,Current prices,Health insurance ,6.8,v62785314,7.1.90");
-		trial.add("1981,Ontario,Current prices,Health insurance ,90.0,v62785314,7.1.90");
-		trial.add("1981,Ontario,Current prices,Health insurance ,100.0,v62785314,7.1.90");
-		trial.add("1981,Ontario,Current prices,Health insurance ,80.0,v62785314,7.1.90");
-		trial.add("1981,Ontario,Current prices,Health insurance ,20.0,v62785314,7.1.90");
+		String fName = "WebContent/WEB-INF/expenditure.csv";
+		File file = new File(fName);
+		//opens and reads requested file
+		FileReader fileReader = new FileReader(file);
+		BufferedReader br = new BufferedReader(fileReader);
+		String line;
+		while ((line = br.readLine()) != null){
+			trial.add(line);
+		}
+		br.close();
+		System.out.println(trial.size());
 	
-		TabGener run = new TabGener(trial,2016,50000,10000,input);
+		//TabGener run = new TabGener(trial,"Ontario",2016.0,50000.0,10000.0,input);
 		
 		//12 blocks in total
-		System.out.println(run.block(0));
+		//System.out.println(run.block(0));
+		Partition pt = new Partition(trial,"Canada");
+		pt.Partition_IO();
+		Vector<String> t2 = pt.partitionoutput();
+		Entry a = new Entry(trial,2017);
+		a.readvector();
+		Vector<String> d2 = a.getoutput();
+		
+		//check to see if vector<String> stays
+		for (String item:d2){
+			//System.out.println(item);
+		}
+		
 	}
 
 }
