@@ -78,10 +78,21 @@ public class UserInput extends HttpServlet{
 		}
 		
 		TabGener run = new TabGener(lines,prov,yr,income,saving,input);
-		List b0 = run.block(0);
+		List<String> block = new ArrayList<String>();
+		//iterate all the blocks
+		for (int i = 0; i < 13; i++) {
+			List temp_value = run.block(i);
+			List temp_string = run.Name(i);
+			//iterate through each blocks
+			for (int j = 0; j < temp_value.size(); j++) {
+				Double val = (Double) temp_value.get(j);
+				block.add(temp_string.get(j)+": "+val);
+			}
+			block.add("---------------------");
+		}
 
 		
-		request.setAttribute("block", b0);
+		request.setAttribute("block", block);
 		RequestDispatcher view = request.getRequestDispatcher("table.jsp");
 		view.forward(request, response);
 	}

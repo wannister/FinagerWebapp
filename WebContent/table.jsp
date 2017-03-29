@@ -10,7 +10,7 @@
 			List styles = (List) request.getAttribute("block");
 			Iterator it = styles.iterator();
 			while (it.hasNext()) {
-				out.print("<br>TRY: " + it.next());
+				out.print("<br>" + it.next());
 			}
 		%>
 	
