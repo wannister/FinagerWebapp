@@ -19,14 +19,15 @@ public class ReadData {
 	private Digraph data;
 	private Vector<Double> value;
 	private Vector<Integer> index_list;
+	private Vector<String> catg_name;
 	private Vector<String> prov_info;
 	
 	public ReadData(Vector<String> file){
 		this.data = new Digraph(1000);
 		this.value = new Vector<Double>();
 		this.index_list = new Vector<Integer>();
+		this.catg_name = new Vector<String>();
 		this.prov_info = file;
-		//ReadFile();
 		Read();
 	}
 	//getter
@@ -50,18 +51,11 @@ public class ReadData {
 	public Vector<Integer> indexes(){
 		return index_list;
 	}
-	/*fake vector input data
-	private void ReadFile(){
-	 
-		this.file_info.add("1981,Ontario,Current prices,Health insurance ,196.8,v62785314,7.1.90");
-		this.file_info.add("1981,Ontario,Current prices,Health insurance ,96.8,v62785315,7.1.90");
-		this.file_info.add("1981,Ontario,Current prices,Health insurance ,6.8,v62785314,7.1.90");
-		this.file_info.add("1981,Ontario,Current prices,Health insurance ,90.0,v62785314,7.1.90");
-		this.file_info.add("1981,Ontario,Current prices,Health insurance ,100.0,v62785314,7.1.90");
-		this.file_info.add("1981,Ontario,Current prices,Health insurance ,80.0,v62785314,7.1.90");
-		this.file_info.add("1981,Ontario,Current prices,Health insurance ,20.0,v62785314,7.1.90");
+	//getter
+	public Vector<String> CatgNames(){
+		return catg_name;	 
 	}
-	*/
+
 	
 	private void Read(){
 		//line containing provincial total
@@ -72,6 +66,7 @@ public class ReadData {
 		
 		//stores provincial total
 		this.value.add(0,final_val);
+		this.catg_name.add(" ");
 		
 		int BC_ind = 0; //big category index
 		
@@ -91,6 +86,8 @@ public class ReadData {
 			Double sum = Double.parseDouble(input[1]);
 			//store value into the list
 			this.value.add(i,sum);					
+			//store name into string vector
+			this.catg_name.add(input[5]);
 			
 			String line2; //value of sub-categories
 			
@@ -105,10 +102,12 @@ public class ReadData {
 				double current_val = Double.parseDouble(input[1]);
 				//store into the value vector
 				this.value.add(i,current_val);
+				//store name into string vector
+				this.catg_name.add(input[5]);
 				
 				//if the line is not big category
 				if (sum != current_val){
-					this.data.addEdge(BC_ind, i);					
+					this.data.addEdge(BC_ind, i);
 				}
 				sum -= current_val;				
 			}

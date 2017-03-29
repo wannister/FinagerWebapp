@@ -42,6 +42,11 @@ public class UserInput extends HttpServlet{
 		result.add(Double.parseDouble(p11));
 		result.add(Double.parseDouble(p12));
 		
+		String prov = request.getParameter("prov");
+		Double yr = Double.parseDouble(request.getParameter("year"));
+		Double income = Double.parseDouble(request.getParameter("income"));
+		Double saving = Double.parseDouble(request.getParameter("saving"));
+		
 		//convert from vector to Double[]
 		Double[] input = new Double[13];
 		for (int i = 0; i < input.length; i++) {
@@ -72,7 +77,7 @@ public class UserInput extends HttpServlet{
 			lines.add(word);
 		}
 		
-		TabGener run = new TabGener(lines,"Ontario",2016.0,50000.0,10000.0,input);
+		TabGener run = new TabGener(lines,prov,yr,income,saving,input);
 		List b0 = run.block(0);
 
 		
