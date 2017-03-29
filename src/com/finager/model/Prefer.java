@@ -1,5 +1,7 @@
 package com.finager.model;
 
+import java.util.Arrays;
+
 //use ReadData module
 /**
  * 
@@ -18,7 +20,6 @@ public class Prefer {
 		pref = user;
 		rd = read;
 		Replace();
-		DataRevised();
 	}
 	/**
 	 * 
@@ -39,19 +40,15 @@ public class Prefer {
 	 * 
 	 */
 	private void Replace(){
+		
 		for(int i = 0; i<pref.length;i++){
 			//find the corresponding big category
 			int catg = rd.Index2Catg(i);
 			//find the corresponding value
 			Double val = rd.Value().get(catg);
-			
 			pref [i] = pref [i] * val; 
 		}
-	}
-	/**
-	 * 
-	 */
-	private void DataRevised(){
+		
 		double newData = 0;
 		for (double entry : pref) {
 		    newData += entry;
@@ -60,9 +57,10 @@ public class Prefer {
 		
 		//adjust the ratio
 		double kRatio = oldData / newData;
+		
 		for(int i = 0; i<pref.length; i++){
 			pref[i] = pref[i]*kRatio;
-		}		
+		}
 	}
 
 }

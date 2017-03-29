@@ -4,6 +4,7 @@ import java.io.*;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Vector;
 
 //use Prefer module
@@ -62,24 +63,25 @@ public class TabGener {
 		int inx = f.Index2Catg(c);
 
 		// original value from dataset
-		result = sc.smaller(inx);
-
+		Vector<Double> temp = sc.smaller(inx);
+		Collections.reverse(temp);
+		
 		// user prefences ratio calculation
 		Double old_val = f.Value().get(inx);
 		Double new_val = prefs.Value(c);
-		Double k_pref = old_val / new_val;
+		Double k_pref = new_val / old_val;
 
 		// insert the overall value at the front
-		result.add(0, new_val);
+		result.add(new_val * k_income.k());
 
 		// adjust by user input
-		for (int i = 0; i < result.size(); i++) {
-			Double item = result.get(i);
+		for (int i = 0; i < temp.size(); i++) {
+			Double item = temp.get(i);
 			// adjust by user income, preferences
 			item = item * k_pref * k_income.k();
 
 			// set the value back
-			result.set(i, item);
+			result.add(item);
 		}
 		return result;
 	}
@@ -120,6 +122,7 @@ public class TabGener {
 		for (int i = 0; i < input.length; i++) {
 			input[i] = 1.0;
 		}
+		input[0] = 0.9;
 
 		// example run
 

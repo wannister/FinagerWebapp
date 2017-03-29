@@ -36,7 +36,7 @@ public class Ratio {
 	 * @return
 	 */
 	public double k(){
-		double k = overall()/this.user;
+		double k = this.user/overall();
 		return k;
 	}
 
