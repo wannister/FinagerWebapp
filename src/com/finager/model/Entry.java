@@ -70,6 +70,8 @@ public class Entry {
 						+ information[1] + "," + information[2] + "," + information[3]);
 
 				j = 0;
+				year = new double[50];
+				expenditure = new double[50];
 				i++;
 			}
 
