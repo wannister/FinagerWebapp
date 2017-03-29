@@ -14,7 +14,8 @@ public class TabGener {
 	private Prefer prefs;
 	private SmallCatg sc;
 	
-	public TabGener(String prov, int year, int income, int saving, Double[] pref) throws IOException{
+	
+	public TabGener(Vector<String> prov, int year, int income, int saving, Double[] pref) throws IOException{
 		//partition the data set, omit unnecessary data
 				//predict the future value
 				Partition pat = new Partition(year);
@@ -63,6 +64,7 @@ public class TabGener {
 		return result;
 	}
 	
+	
 	public static void main(String[] args) throws IOException{
 		Double[] input = new Double[13];
 		for (int i = 0; i < input.length; i++) {
@@ -70,7 +72,19 @@ public class TabGener {
 		}
 		
 		//example run
-		TabGener run = new TabGener("Ontario",2016,50000,10000,input);
+		
+		//readData fake data
+		Vector<String> trial = new Vector<String>();
+		trial.add("1981,Ontario,Current prices,Health insurance ,196.8,v62785314,7.1.90");
+		trial.add("1981,Ontario,Current prices,Health insurance ,96.8,v62785315,7.1.90");
+		trial.add("1981,Ontario,Current prices,Health insurance ,6.8,v62785314,7.1.90");
+		trial.add("1981,Ontario,Current prices,Health insurance ,90.0,v62785314,7.1.90");
+		trial.add("1981,Ontario,Current prices,Health insurance ,100.0,v62785314,7.1.90");
+		trial.add("1981,Ontario,Current prices,Health insurance ,80.0,v62785314,7.1.90");
+		trial.add("1981,Ontario,Current prices,Health insurance ,20.0,v62785314,7.1.90");
+	
+		TabGener run = new TabGener(trial,2016,50000,10000,input);
+		
 		//12 blocks in total
 		System.out.println(run.block(0));
 	}
