@@ -6,10 +6,17 @@ import java.io.*;
 import java.util.*;
 
 import com.finager.model.*;; // notice this
-
+/**
+ * 
+ * 
+ *
+ */
 public class UserInput extends HttpServlet {
 
 	// jsp page sample run
+	/**
+	 * 
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		// combine all the preferences to an array of double
 		String p0 = request.getParameter("pref0");

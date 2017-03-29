@@ -9,7 +9,7 @@ import java.util.Vector;
  * 
  * Excepted output: Vector<String> containing only data from user province
  * 
- * @author mina
+ * 
  *
  */
 public class Partition {
@@ -26,7 +26,11 @@ public class Partition {
 	Partition() {
 
 	}
-
+    /**
+     * 
+     * @param partitioninput
+     * @param province
+     */
 	public Partition(Vector<String> partitioninput, String province) {
 		this.Partitioninput = partitioninput;
 		this.Province = province;
@@ -48,7 +52,10 @@ public class Partition {
 			i++;
 		}
 	}
-
+    /**
+     * 
+     * @return
+     */
 	public Vector<String> partitionoutput() {
 		return Partitionoutput;
 	}

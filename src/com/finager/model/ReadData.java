@@ -12,7 +12,7 @@ import java.util.Vector;
  * Constructor:Vector<String> containing only data 
  * 				from user province
  * 
- * @author mina
+ *
  *
  */
 public class ReadData {
@@ -21,7 +21,10 @@ public class ReadData {
 	private Vector<Integer> index_list;
 	private Vector<String> catg_name;
 	private Vector<String> prov_info;
-	
+	/**
+	 * 
+	 * @param file
+	 */
 	public ReadData(Vector<String> file){
 		this.data = new Digraph(1000);
 		this.value = new Vector<Double>();
@@ -31,32 +34,60 @@ public class ReadData {
 		Read();
 	}
 	//getter
+	/**
+	 * 
+	 * @return
+	 */
 	public Digraph Graph(){
 		return this.data;
 	}
 	//getter
+	/**
+	 * 
+	 * @return
+	 */
 	public Vector<Double> Value(){
 		return this.value;
 	}
 	//getter
+	/**
+	 * 
+	 * @param catg
+	 * @return
+	 */
 	public int Catg2Index(int catg){
 		return this.index_list.indexOf(catg);
 	}
 	//getter
+	/**
+	 * 
+	 * @param index
+	 * @return
+	 */
 	public int Index2Catg(int index){
 		return this.index_list.elementAt(index);
 	}
 	
 	//getter
+	/**
+	 * 
+	 * @return
+	 */
 	public Vector<Integer> indexes(){
 		return index_list;
 	}
 	//getter
+	/**
+	 * 
+	 * @return
+	 */
 	public Vector<String> CatgNames(){
 		return catg_name;	 
 	}
 
-	
+	/**
+	 * 
+	 */
 	private void Read(){
 		//line containing provincial total
 		String[] total = this.prov_info.elementAt(0).split(",");

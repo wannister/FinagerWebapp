@@ -9,13 +9,25 @@ import java.util.Vector;
 //use Prefer module
 //use SmallCatg module
 //use Ration module
-
+/**
+ * 
+ * 
+ *
+ */
 public class TabGener {
 	private ReadData f;
 	private Ratio k_income;
 	private Prefer prefs;
 	private SmallCatg sc;
-
+    /**
+     * 
+     * @param data
+     * @param prov
+     * @param year
+     * @param income
+     * @param saving
+     * @param pref
+     */
 	public TabGener(Vector<String> data, String prov, Double year, Double income, Double saving, Double[] pref) {
 
 		Entry a = new Entry(data, year);
@@ -37,7 +49,11 @@ public class TabGener {
 		// generate small category based on big category
 		sc = new SmallCatg(f);
 	}
-
+    /**
+     * 
+     * @param c
+     * @return
+     */
 	public Vector<Double> block(int c) {
 		// create a new variable to store the result
 		Vector<Double> result = new Vector<Double>();
@@ -67,7 +83,11 @@ public class TabGener {
 		}
 		return result;
 	}
-
+    /**
+     * 
+     * @param c
+     * @return
+     */
 	public Vector<String> Name(int c) {
 		// create a new variable to store the result
 		Vector<String> name = new Vector<String>();
@@ -89,6 +109,11 @@ public class TabGener {
 	}
 
 	// test all modules together
+	/**
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 
 		Double[] input = new Double[13];

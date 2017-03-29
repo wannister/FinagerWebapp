@@ -19,6 +19,7 @@ public class LinearRegression {
     private final double r2;
     private final double svar0, svar1;
 
+    
    /**
      * Performs a linear regression on the data points {@code (y[i], x[i])}.
      *
@@ -150,7 +151,6 @@ public class LinearRegression {
  *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
  *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
  *      http://algs4.cs.princeton.edu
- *
  *
  *  algs4.jar is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

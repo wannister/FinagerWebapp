@@ -4,7 +4,11 @@ import java.io.*;
 
 import java.util.Arrays;
 import java.util.Vector;
-
+/**
+ * 
+ * 
+ *
+ */
 public class Entry {
 
 	double[] realyear, realexpenditure;
@@ -14,7 +18,11 @@ public class Entry {
 	String[] information = new String[4];
 	Vector<String> data = new Vector<String>();
 	Vector<String> output = new Vector<String>();
-
+    /**
+     * 
+     * @param A
+     * @param Selectyear
+     */
 	public Entry(Vector<String> A, double Selectyear) {// Vector<String>;//sort
 														// and search//
 
@@ -75,13 +83,20 @@ public class Entry {
 		}
 
 	}
-
+    /**
+     * 
+     * @return
+     */
 	public Vector<String> getoutput() { // get the output Vector of string
 
 		return output;
 
 	}
-
+    /**
+     * 
+     * @param args
+     * @throws IOException
+     */
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader("WebContent/WEB-INF/expenditure.csv"));
 

@@ -5,7 +5,11 @@ package com.finager.model;
 
 import java.util.Vector;
 
-
+/**
+ * 
+ * 
+ *
+ */
 public class SmallCatg {
 
 	private ReadData rd;
@@ -13,7 +17,11 @@ public class SmallCatg {
 	public SmallCatg(ReadData rd){
 		this.rd = rd;
 	}
-	
+	/**
+	 * 
+	 * @param v
+	 * @return
+	 */
 	public Vector<Double> smaller(int v){
 		//create a variable to store the result
 		Vector<Double> result = new Vector<Double>();
