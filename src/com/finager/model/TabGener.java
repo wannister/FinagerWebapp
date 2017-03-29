@@ -19,12 +19,10 @@ public class TabGener {
 	public TabGener(Vector<String> data, String prov, Double year, Double income, Double saving, Double[] pref) {
 
 		Entry a = new Entry(data, year);
-		a.readvector();
 		Vector<String> d2 = a.getoutput();
 
 		// partition the data set, omit unnecessary data
 		Partition pat = new Partition(d2, prov);
-		pat.Partition_IO();
 		Vector<String> d3 = pat.partitionoutput();
 
 		// read data from Ontario

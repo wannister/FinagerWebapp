@@ -10,19 +10,17 @@ public class Entry {
 	double[] realyear, realexpenditure;
 	double[] year = new double[50];
 	double[] expenditure = new double[50];
-	static double selectyear;
+	double selectyear;
 	String[] information = new String[4];
 	Vector<String> data = new Vector<String>();
-	static Vector<String> output = new Vector<String>() ;
+	Vector<String> output = new Vector<String>();
 
 	public Entry(Vector<String> A, double Selectyear) {// Vector<String>;//sort
-																// and search//
+														// and search//
 
-		Entry.selectyear = Selectyear;
+		this.selectyear = Selectyear;
 		this.data = A;
-	}
 
-	public void readvector() {
 		int i = 1;
 		int j = 0;
 		double checker = 0;
@@ -75,18 +73,17 @@ public class Entry {
 			}
 
 		}
-		
 
 	}
-	
-	public Vector<String> getoutput(){  //get the output Vector of string
-		
+
+	public Vector<String> getoutput() { // get the output Vector of string
+
 		return output;
-		
+
 	}
 
-	/*public static void main(String[] args) throws IOException {
-		BufferedReader reader = new BufferedReader(new FileReader("data/expenditure.csv"));
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new FileReader("WebContent/WEB-INF/expenditure.csv"));
 
 		Vector<String> lines = new Vector<String>();
 
@@ -94,13 +91,12 @@ public class Entry {
 		while ((word = reader.readLine()) != null) {
 			lines.add(word);
 		}
-		VectorEntry test = new VectorEntry(lines, 2016);
-		test.readvector();
+		Entry test = new Entry(lines, 2016);
 		for (int i = 0; i < 1497; i++) {
-			System.out.println(VectorEntry.output.get(i));
-			
+			System.out.println(test.output.get(i));
+
 		}
 		reader.close();
-	}*/
+	}
 
 }
