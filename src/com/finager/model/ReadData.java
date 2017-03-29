@@ -64,69 +64,6 @@ public class ReadData {
 	*/
 	
 	private void Read(){
-		/* old code used for comparison
-		try {
-			File file = new File("data/" + this.user_prov + ".csv");
-			//opens and reads requested file
-			FileReader fileReader = new FileReader(file);
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			String[] input = bufferedReader.readLine().split(",");
-			
-			Double total = Double.parseDouble(input[4]);
-			
-			//provincial total
-			this.value.add(0,total);
-			
-			//total value of first big category
-			String line;
-			
-			int i = 0; //value index initialized to provincial total
-			int BC_ind = 0; //big category index
-			
-			while ((line = bufferedReader.readLine()) != null) {
-				//increment BC and i together
-				i++; BC_ind++;
-				
-				//add the index to the lsit
-				this.index_list.add(i);				
-				
-				//split the line
-				input = line.split(",");
-				//get the value of the sum
-				Double sum = Double.parseDouble(input[4]);
-				//store value into the list
-				this.value.add(i,sum);					
-				
-				String line2; //value of sub-categories
-				
-				while(Math.floor(Math.abs(sum))!=0.0){
-					line2 = bufferedReader.readLine();
-					//only increment i
-					i++;
-				
-					//split the line
-					input = line2.split(",");
-					//get the value of line
-					double current_val = Double.parseDouble(input[4]);
-					//store into the value vector
-					this.value.add(i,current_val);
-					
-					//if the line is not big category
-					if (sum != current_val){
-						this.data.addEdge(BC_ind, i);
-					}
-					sum -= current_val;
-					
-				}
-				//jump the BC to i position
-				BC_ind=i;
-			}
-			fileReader.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		*/
-		
 		//line containing provincial total
 		String[] total = this.prov_info.elementAt(0).split(",");
 		
@@ -157,9 +94,9 @@ public class ReadData {
 			
 			String line2; //value of sub-categories
 			
-			while(Math.floor(Math.abs(sum))!=0.0){
+			while(i<107 & Math.floor(Math.abs(sum))!=0.0){
 				i++; //manually increase counter
-				
+
 				line2 = this.prov_info.elementAt(i); //temp stores string containing sub-catg values			
 			
 				//split the line
