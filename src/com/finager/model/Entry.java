@@ -2,109 +2,104 @@ package com.finager.model;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Vector;
 
 import edu.princeton.cs.algs4.LinearRegression;
-/**
- * Constructor: Vector<String>, year
- * 
- * Excepted output: Vector<String> with predicting data
- * 
- * @author mina
- *
- */
+
 public class Entry {
+
 	double[] realyear, realexpenditure;
 	double[] year = new double[50];
 	double[] expenditure = new double[50];
-	double selectyear;
+	static double selectyear;
 	String[] information = new String[4];
-	File csv;
+	Vector<String> data = new Vector<String>();
+	static Vector<String> output = new Vector<String>() ;
 
-	Entry() {
+	public Entry(Vector<String> A, double Selectyear) {// Vector<String>;//sort
+																// and search//
 
+		Entry.selectyear = Selectyear;
+		this.data = A;
 	}
 
-	public Entry(double Selectyear) throws IOException {
-		csv = new File("data/"+"predict" + ".csv");
-		this.selectyear = Selectyear;
-		PrintWriter clear = new PrintWriter(csv);
-		clear.close();
-	}
-
-	public void EntryIO() throws IOException {
-		BufferedReader reader = new BufferedReader(new FileReader("data/expenditure.csv"));
-		reader.readLine();// skip the first line
-		String line = null;
-		int i = 0;
+	public void readvector() {
+		int i = 1;
+		int j = 0;
 		double checker = 0;
-		while ((line = reader.readLine()) != null) {
-			String item[] = line.split(",");// seperate a line by ,
-			if (item[2].contains("2007"))// skip the prices in 2007
+		while (i < 129778) {
+			String item[] = data.get(i).split(",");// seperate a line by ,
+			if (item[2].contains("2007") || item[item.length - 2].contains("15.")
+					|| item[item.length - 2].contains("16.") || item[item.length - 4].contains("Expenditure by")
+					|| item[item.length - 4].contains("Net expen"))// skip
+																	// useless
+																	// info
+			{
+				i++;
 				continue;
-			// first column
-			if (item[item.length - 2].contains("15."))// skip the outside canada
-														// line
-				continue;
-			if (item[item.length - 2].contains("16."))// skip the outside canada
-														// line
-				continue;
-			if (item[item.length - 4].contains("Expenditure by"))// skip the expenditure
-				continue;										// not related with
-																//the province
-			
-			if (item[item.length - 4].contains("Net expen"))
-				continue;
-				
+			}
+
 			if (Double.parseDouble(item[0]) > checker) { // add the elements to
 															// an array if the
 															// year is
 															// increasing
-				year[i] = Double.parseDouble(item[0]);
-				checker = year[i];
-				information[0] = item[1];
-				information[1] = item[item.length - 2];
-				information[2] = item[item.length - 3];
-				information[3] = item[item.length - 4];
 				try {
-					expenditure[i] = Double.parseDouble(item[item.length - 1]);
-					i++;
+					expenditure[j] = Double.parseDouble(item[item.length - 1]);
 				} catch (Exception e) {
+					i++;
 					continue;
 
 				}
 
+				year[j] = Double.parseDouble(item[0]);
+				checker = year[j];
+				information[0] = item[1];
+				information[1] = item[item.length - 2];
+				information[2] = item[item.length - 3];
+				information[3] = item[item.length - 4];
+				i++;
+				j++;
 			}
 
 			else {
 				checker = Double.parseDouble(item[0]);
 				realyear = Arrays.copyOfRange(year, 0, i);
 				realexpenditure = Arrays.copyOfRange(expenditure, 0, i);
-				writetofile();
+				LinearRegression predictdata = new LinearRegression(realyear, realexpenditure);
+				output.add(selectyear + "," + predictdata.predict(selectyear) + "," + information[0] + ","
+						+ information[1] + "," + information[2] + "," + information[3]);
 
-				i = 0;
-
+				j = 0;
+				i++;
 			}
 
 		}
-		reader.close();
+		
+
 	}
-
-	public double predict() {
-		LinearRegression A = new LinearRegression(realyear, realexpenditure);
-		return A.predict(this.selectyear);
-	}
-
-	public void writetofile() throws IOException {
-		BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true)); //
-		bw.write(selectyear + "," + information[0] + "," + information[1] + ","
-				+ information[2].substring(1, information[2].length()) + "," + predict() + "," + information[3]);
-		bw.newLine();
-		bw.close();
-
+	
+	public Vector<String> getoutput(){  //get the output Vector of string
+		
+		return output;
+		
 	}
 
 	/*public static void main(String[] args) throws IOException {
-		Entry A = new Entry(2016);
-		A.EntryIO();
+		BufferedReader reader = new BufferedReader(new FileReader("data/expenditure.csv"));
+
+		Vector<String> lines = new Vector<String>();
+
+		String word;
+		while ((word = reader.readLine()) != null) {
+			lines.add(word);
+		}
+		VectorEntry test = new VectorEntry(lines, 2016);
+		test.readvector();
+		for (int i = 0; i < 1497; i++) {
+			System.out.println(VectorEntry.output.get(i));
+			
+		}
+		reader.close();
 	}*/
+
 }
