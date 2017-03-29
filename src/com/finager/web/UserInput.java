@@ -71,11 +71,12 @@ public class UserInput extends HttpServlet{
 		while((word= br.readLine())!= null){
 			lines.add(word);
 		}
-		//check if the size matches the original file
-		System.out.println(lines.size());
+		
+		TabGener run = new TabGener(lines,"Ontario",2016.0,50000.0,10000.0,input);
+		List b0 = run.block(0);
 
 		
-		request.setAttribute("block", result);
+		request.setAttribute("block", b0);
 		RequestDispatcher view = request.getRequestDispatcher("table.jsp");
 		view.forward(request, response);
 	}

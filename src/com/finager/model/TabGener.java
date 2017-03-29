@@ -30,7 +30,7 @@ public class TabGener {
 		
 		
 		//read data from Ontario
-		//f = new ReadData(d3);
+		f = new ReadData(d3);
 	
 		//generate income matching ratio
 		k_income = new Ratio(income,saving,f);
@@ -95,21 +95,10 @@ public class TabGener {
 		br.close();
 		System.out.println(trial.size());
 	
-		//TabGener run = new TabGener(trial,"Ontario",2016.0,50000.0,10000.0,input);
+		TabGener run = new TabGener(trial,"Ontario",2016.0,50000.0,10000.0,input);
 		
 		//12 blocks in total
-		//System.out.println(run.block(0));
-		Partition pt = new Partition(trial,"Canada");
-		pt.Partition_IO();
-		Vector<String> t2 = pt.partitionoutput();
-		Entry a = new Entry(trial,2017);
-		a.readvector();
-		Vector<String> d2 = a.getoutput();
-		
-		//check to see if vector<String> stays
-		for (String item:d2){
-			//System.out.println(item);
-		}
+		System.out.println(run.block(0));
 		
 	}
 

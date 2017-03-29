@@ -5,8 +5,6 @@ package com.finager.model;
 
 import java.util.Vector;
 
-import edu.princeton.cs.algs4.Digraph;
-
 
 public class SmallCatg {
 

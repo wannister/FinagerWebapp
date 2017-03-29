@@ -31,7 +31,7 @@ public class Partition {
 
 		while (i < Partitioninput.size()) {
 			String[] inputitem = Partitioninput.get(i).split(",");
-			if (inputitem[2] == Province) {
+			if (inputitem[2].equals(Province)) {
 				String transfer = inputitem[0] + "," + inputitem[1] + "," + inputitem[2] + "," + inputitem[3] + ","
 						+ inputitem[4] + "," + inputitem[5];
 				Partitionoutput.add(transfer);

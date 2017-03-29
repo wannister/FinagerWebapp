@@ -1,10 +1,9 @@
 package com.finager.model;
 
 import java.io.*;
+
 import java.util.Arrays;
 import java.util.Vector;
-
-import edu.princeton.cs.algs4.LinearRegression;
 
 public class Entry {
 

@@ -1,12 +1,12 @@
 package com.finager.model;
 
 import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Vector;
 
-import edu.princeton.cs.algs4.Digraph;
 
 /**
  * Constructor:Vector<String> containing only data 
@@ -22,7 +22,7 @@ public class ReadData {
 	private Vector<String> prov_info;
 	
 	public ReadData(Vector<String> file){
-		this.data = new Digraph(120);
+		this.data = new Digraph(1000);
 		this.value = new Vector<Double>();
 		this.index_list = new Vector<Integer>();
 		this.prov_info = file;
