@@ -14,7 +14,7 @@ import java.util.Vector;
  * Project Information*
  * -------------------* 
  * Name: Finager*
- * Course Code: CS 2XB3* 
+ * Course Code: CS 2XB3*
  * Lab Section: 01* 
  * The {@code TabGener} class provides methods apply other java file and 
  * generate output transfer to user.
