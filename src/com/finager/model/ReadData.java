@@ -14,7 +14,7 @@ import java.util.Vector;
  * Name: Finager*
  * Course Code: CS 2XB3* 
  * Lab Section: 01* 
- * The {@code ReadData} class provides constructor to separate data from 
+ * The {@code ReadData} class provides methods to separate data from 
  * the output of Partition.java and built a digraph.
  */
 public class ReadData {

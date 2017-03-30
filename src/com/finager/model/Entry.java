@@ -9,7 +9,7 @@ import java.util.Vector;
  * Name: Finager*
  * Course Code: CS 2XB3* 
  * Lab Section: 01* 
- * The {@code Entry} class provides constructor to read from the expenditure data
+ * The {@code Entry} class provides methods to read from the expenditure data.
  */
 public class Entry {
 

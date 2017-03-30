@@ -9,7 +9,7 @@ import java.util.Vector;
  * Name: Finager*
  * Course Code: CS 2XB3* 
  * Lab Section: 01* 
- * The {@code Partition} class provides constructor to get the information of  
+ * The {@code Partition} class provides methods to get the information of  
  * predicted average expenditure for all categories of selected provinces.
  */
 public class Partition {

@@ -4,27 +4,30 @@ package com.finager.model;
 
 import java.util.Vector;
 /**
- * 
- * 
- *
+ * Project Information*
+ * -------------------* 
+ * Name: Finager*
+ * Course Code: CS 2XB3* 
+ * Lab Section: 01* 
+ * The {@code Ratio} class provides method to calculate the ratio K.
  */
 public class Ratio {
 	
 	private double user;
 	private ReadData rd;
 	/**
-	 * 
-	 * @param income
-	 * @param saving
-	 * @param rd
+	 * Ratio constructor calculate the user's expenditure for one year.
+	 * @param income-The user's annual income.
+	 * @param saving－The total amount of money user wants to save this year.
+	 * @param rd-The ReadData constructor from ReadData.java.
 	 */
 	public Ratio(double income, double saving, ReadData rd ) {
 		this.user = income - saving;
 		this.rd = rd;
 	}
 	/**
-	 * 
-	 * @return
+	 * Get the overall predicted average expenditure value from file.
+	 * @return-The overall predicted average expenditure value from file.
 	 */
 	public double overall(){
 		Vector<Double> v = rd.Value();
@@ -32,8 +35,8 @@ public class Ratio {
 		return overall;
 	}
 	/**
-	 * 
-	 * @return
+	 * Calculate the ratio K between user's annual income and overall predicted average expenditure.
+	 * @return-The ratio K.
 	 */
 	public double k(){
 		double k = this.user/overall();

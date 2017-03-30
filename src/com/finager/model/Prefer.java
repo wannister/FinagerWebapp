@@ -4,17 +4,20 @@ import java.util.Arrays;
 
 //use ReadData module
 /**
- * 
- * 
- *
+ * Project Information*
+ * -------------------* 
+ * Name: Finager*
+ * Course Code: CS 2XB3* 
+ * Lab Section: 01* 
+ * The {@code Prefer} class provides methods to generate expenditure by user preferences.
  */
 public class Prefer {
 	private Double[] pref;
 	private ReadData rd;
 	/**
-	 * 
-	 * @param user
-	 * @param read
+	 * Prefer constructor use to calculate the big category expenditure adjust by user preferences.
+	 * @param user-The user's preference for each big category.
+	 * @param read-The ReadData constructor from ReadData.java.
 	 */
 	public Prefer(Double[] user, ReadData read){
 		pref = user;
@@ -22,22 +25,23 @@ public class Prefer {
 		Replace();
 	}
 	/**
-	 * 
-	 * @param catg
-	 * @return
+	 * Get the adjust expenditure of given category position.
+	 * @param catg-The given category position.
+	 * @return-The adjust expenditure of given category position.
 	 */
 	public Double Value(int catg){
 		return pref[catg];
 	}
 	/**
-	 * 
-	 * @return
+	 * Get expenditure adjust by user preferences.
+	 * @return-The expenditure adjust by user preferences.
 	 */
 	public Double[] vals(){
 		return this.pref;
 	}
 	/**
-	 * 
+	 * Calculate the big category expenditure adjust by user preferences.
+	 * And adjust ration K.
 	 */
 	private void Replace(){
 		
@@ -48,7 +52,7 @@ public class Prefer {
 			Double val = rd.Value().get(catg);
 			pref [i] = pref [i] * val; 
 		}
-		
+		//calculate the new overall expenditure
 		double newData = 0;
 		for (double entry : pref) {
 		    newData += entry;

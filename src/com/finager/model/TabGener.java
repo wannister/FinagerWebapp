@@ -16,7 +16,8 @@ import java.util.Vector;
  * Name: Finager*
  * Course Code: CS 2XB3* 
  * Lab Section: 01* 
- * The {@code TabGener} class provides constructor 
+ * The {@code TabGener} class provides methods apply other java file and 
+ * generate output transfer to user.
  */
 public class TabGener {
 	private ReadData f;
@@ -24,7 +25,7 @@ public class TabGener {
 	private Prefer prefs;
 	private SmallCatg sc;
     /**
-     * 
+     * Transfer user input to all other java file and apply them.
      * @param data－The expenditure data read from the original expenditure.csv file.
      *              This file records the annual expenditure of a household in all category from 1981 to 2015.
      * @param prov-The name of the province selected by the user.
