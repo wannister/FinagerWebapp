@@ -11,9 +11,12 @@ import java.util.Vector;
 //use SmallCatg module
 //use Ration module
 /**
- * 
- * 
- *
+ * Project Information*
+ * -------------------* 
+ * Name: Finager*
+ * Course Code: CS 2XB3* 
+ * Lab Section: 01* 
+ * The {@code TabGener} class provides constructor 
  */
 public class TabGener {
 	private ReadData f;
@@ -31,15 +34,15 @@ public class TabGener {
      * @param pref-The user's preference for each big category.
      */
 	public TabGener(Vector<String> data, String prov, Double year, Double income, Double saving, Double[] pref) {
-
+        // use entry constructor predicts the expenditure for a given year
 		Entry a = new Entry(data, year);
 		Vector<String> d2 = a.getoutput();
 
-		// partition the data set, omit unnecessary data
+		// partition the data set, get the predicted average expenditure of selected provinces
 		Partition pat = new Partition(d2, prov);
 		Vector<String> d3 = pat.partitionoutput();
 
-		// read data from Ontario
+		// read data from selected provinces
 		f = new ReadData(d3);
 
 		// generate income matching ratio

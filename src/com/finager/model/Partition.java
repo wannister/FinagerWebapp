@@ -69,7 +69,7 @@ public class Partition {
 		return Partitionoutput;
 	}
 
-	/*public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader("WebContent/WEB-INF/expenditure.csv"));
 		Vector<String> lines = new Vector<String>();
 
@@ -84,6 +84,6 @@ public class Partition {
 
 		}
 		reader.close();
-	}*/
+	}
 
 }

@@ -1,17 +1,21 @@
 package com.finager.model;
 
 /**
- * 
- * 
- *
+ * Project Information*
+ * -------------------* 
+ * Name: Finager*
+ * Course Code: CS 2XB3* 
+ * Lab Section: 01* 
+ * The {@code Digraph} class represents a directed graph of vertices
+ * named 0 through V-1.
  */
 public class Digraph {
-	private final int V;
-	private int E;
-	private Bag<Integer>[] adj;
+	private final int V; // number of vertices in this digraph
+	private int E; // number of edges in this digraph
+	private Bag<Integer>[] adj; // adj[v] = adjacency list for vertex v
     /**
-     * 
-     * @param V
+     * Initializes an empty digraph with V vertices.
+     * @param V-The number of vertices.
      */
 	public Digraph(int V) {
 		this.V = V;
@@ -21,39 +25,39 @@ public class Digraph {
 			adj[v] = new Bag<Integer>();
 	}
     /**
-     * 
-     * @return
+     * Returns the number of vertices in this digraph.
+     * @return-The number of vertices in this digraph.
      */
 	public int V() {
 		return V;
 	}
     /**
-     * 
-     * @return
+     * Returns the number of edges in this digraph.
+     * @return-The number of edges in this digraph.
      */
 	public int E() {
 		return E;
 	}
     /**
-     * 
-     * @param v
-     * @param w
+     * Adds the directed edge v→w to this digraph.
+     * @param v-The tail vertex.
+     * @param w-The head vertex.
      */
 	public void addEdge(int v, int w) {
 		adj[v].add(w);
 		E++;
 	}
     /**
-     * 
-     * @param v
-     * @return
+     * Returns the vertices adjacent from vertex {@code v} in this digraph.
+     * @param v-The vertex.
+     * @return-The vertices adjacent from vertex {@code v} in this digraph, as an iterable.
      */
 	public Iterable<Integer> adj(int v) {
 		return adj[v];
 	}
     /**
-     * 
-     * @return
+     * Returns the reverse of the digraph.
+     * @return-The reverse of the digraph.
      */
 	public Digraph reverse() {
 		Digraph R = new Digraph(V);
