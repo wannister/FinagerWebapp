@@ -56,6 +56,7 @@ public class UserInput extends HttpServlet {
 		Double yr = Double.parseDouble(request.getParameter("year"));
 		Double income = Double.parseDouble(request.getParameter("income"));
 		Double saving = Double.parseDouble(request.getParameter("saving"));
+		//String prov_choice = request.getParameter("prov_choice");
 
 		// convert from vector to Double[]
 		Double[] input = new Double[13];
@@ -104,6 +105,15 @@ public class UserInput extends HttpServlet {
 			}
 			block.add("---------------------");
 		}
+		block.add("Expected Household Expenditure Ranking Based on Provinces");
+		block.add("   ");
+		for(int x = 0; x<13; x++){
+			//String rank = String.format("%.2f",run.Ranking()[x].getVal());
+			block.add(run.Ranking()[x].getProv()/*+": "+ rank*/);
+		}
+		/*
+		String ProExp = String.format("%.2f", run.FindProv(prov_choice));
+		block.add(ProExp);*/
 
 		request.setAttribute("block", block);
 		RequestDispatcher view = request.getRequestDispatcher("table.jsp");

@@ -24,14 +24,15 @@ public class TabGener {
 	private Ratio k_income;
 	private Prefer prefs;
 	private SmallCatg sc;
+	private Ranking r;
         /**
          * Transfer user input to all other java file and apply them.
-         * @param data－The expenditure data read from the original expenditure.csv file.
+         * @param datail-The expenditure data read from the original expenditure.csv file.
          *              This file records the annual expenditure of a household in all category from 1981 to 2015.
          * @param prov-The name of the province selected by the user.
-         * @param year－The year the user chooses to expect the expenditure.
-         * @param income－The user's annual income.
-         * @param saving－The total amount of money user wants to save this year.
+         * @param year-The year the user chooses to expect the expenditure.
+         * @param income-The user's annual income.
+         * @param saving-The total amount of money user wants to save this year.
          * @param pref-The user's preference for each big category.
          */
 	public TabGener(Vector<String> data, String prov, Double year, Double income, Double saving, Double[] pref) {
@@ -54,6 +55,8 @@ public class TabGener {
 
 		// generate small category based on big category
 		sc = new SmallCatg(f);
+		
+		r = new Ranking(d2);
 	}
         /**
          * Calculate small category expenditure based on big category preference and overall K.
@@ -113,6 +116,13 @@ public class TabGener {
 			name.add(i, item);
 		}
 		return name;
+	}
+	
+	public ProVal[] Ranking(){
+		return this.r.getRank();
+	}
+	public Double FindProv(String pc){
+		return this.r.find(pc);
 	}
 
 	// test all modules together
