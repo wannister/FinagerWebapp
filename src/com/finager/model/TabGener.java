@@ -22,12 +22,13 @@ public class TabGener {
 	private SmallCatg sc;
     /**
      * 
-     * @param data
-     * @param prov
-     * @param year
-     * @param income
-     * @param saving
-     * @param pref
+     * @param data－The expenditure data read from the original expenditure.csv file.
+     *              This file records the annual expenditure of a household in all category from 1981 to 2015.
+     * @param prov-The name of the province selected by the user.
+     * @param year－The year the user chooses to expect the expenditure.
+     * @param income－The user's annual income.
+     * @param saving－The total amount of money user wants to save this year.
+     * @param pref-The user's preference for each big category.
      */
 	public TabGener(Vector<String> data, String prov, Double year, Double income, Double saving, Double[] pref) {
 
