@@ -7,15 +7,19 @@ import java.util.*;
 
 import com.finager.model.*;; // notice this
 /**
- * 
- * 
- *
+ * Project Information*
+ * -------------------* 
+ * Name: Finager*
+ * Course Code: CS 2XB3* 
+ * Lab Section: 01* 
+ * The {@code UserInput} class provides methods get user input from user.html and 
+ * generate output transfer to table.jsp.
  */
 public class UserInput extends HttpServlet {
 
 	// jsp page sample run
 	/**
-	 * 
+	 * get user input from user.html and generate output transfer to table.jsp.
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		// combine all the preferences to an array of double
@@ -83,11 +87,11 @@ public class UserInput extends HttpServlet {
 
 		TabGener run = new TabGener(lines, prov, yr, income, saving, input);
 		List<String> block = new ArrayList<String>();
-		// iterate all the blocks
+		// iterate all the blocks of big category
 		for (int i = 0; i < 13; i++) {
 			List temp_value = run.block(i);
 			List temp_string = run.Name(i);
-			// iterate through each blocks
+			// iterate through each blocks from each big category to all its small category
 			for (int j = 0; j < temp_value.size(); j++) {
 				if (j == 0) {
 					String val = String.format("%.2f", temp_value.get(j));

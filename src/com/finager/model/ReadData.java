@@ -25,10 +25,10 @@ public class ReadData {
 	private Vector<String> prov_info;
 	/**
 	 * ReadData use to read from file.
-	 * 1.add all predicted average expenditure to a Vector<Double>.
+	 * 1.add all predicted average expenditure to a Double Vector.
 	 * 2.separate big category and small category.
 	 * 3.built a digraph with edges from big category to small category.
-	 * @param file-The Vector<String> of information with predicted average expenditure for 
+	 * @param file-The String Vector of information with predicted average expenditure for 
 	 *             all categories of selected provinces.
 	 */
 	public ReadData(Vector<String> file){
@@ -81,7 +81,7 @@ public class ReadData {
 	//getter
 	/**
 	 * Get the big category index list.
-	 * @return-The Vector<Integer> of all big category index.
+	 * @return-The Integer Vector of all big category index.
 	 */
 	public Vector<Integer> indexes(){
 		return index_list;
@@ -89,7 +89,7 @@ public class ReadData {
 	//getter
 	/**
 	 * Get all categories of selected provinces.
-	 * @return-The Vector<String> of all categories of selected provinces.
+	 * @return-The String Vector of all categories of selected provinces.
 	 */
 	public Vector<String> CatgNames(){
 		return catg_name;	 

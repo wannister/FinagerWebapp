@@ -31,7 +31,7 @@ public class Partition {
         /**
          * Partition constructor to get the information of predicted average 
          * expenditure for all categories of selected provinces.
-         * @param partitioninput-The output Vector<String> from Entry.java .
+         * @param partitioninput-The output Vector of String from Entry.java .
          *                       The String has the format the selected year + predicted expenditure 
          *                       + the place + .. + category.
          * @param province-The name of the province selected by the user.
@@ -68,7 +68,7 @@ public class Partition {
 	public Vector<String> partitionoutput() {
 		return Partitionoutput;
 	}
-
+    /*
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader("WebContent/WEB-INF/expenditure.csv"));
 		Vector<String> lines = new Vector<String>();
@@ -85,5 +85,5 @@ public class Partition {
 		}
 		reader.close();
 	}
-
+    */
 }

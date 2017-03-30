@@ -103,8 +103,8 @@ public class Entry {
 	}
        /**
         * Test 
-        * @param args
-        * @throws IOException
+        * @param args-main method
+        * @throws IOException if stream to aFile cannot be written to or closed.
         */
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader("WebContent/WEB-INF/expenditure.csv"));

@@ -56,15 +56,15 @@ public class TabGener {
 		sc = new SmallCatg(f);
 	}
     /**
-     * 
-     * @param c
-     * @return
+     * Calculate small category expenditure based on big category preference and overall K.
+     * @param c-The big category position.
+     * @return-The adjust expenditure from given big category to all its small category.
      */
 	public Vector<Double> block(int c) {
 		// create a new variable to store the result
 		Vector<Double> result = new Vector<Double>();
 
-		// get the index in the value vector
+		// get the index of big category in the value vector
 		int inx = f.Index2Catg(c);
 
 		// original value from dataset
@@ -91,15 +91,15 @@ public class TabGener {
 		return result;
 	}
     /**
-     * 
-     * @param c
-     * @return
+     * Get the category name from one big category to all its small category.
+     * @param c-The big category position.
+     * @return-The category name from one big category to all its small category.
      */
 	public Vector<String> Name(int c) {
 		// create a new variable to store the result
 		Vector<String> name = new Vector<String>();
 
-		// get the index in the value vector
+		// get the index of big category in the value vector
 		int inx = f.Index2Catg(c);
 
 		// original value from dataset
@@ -117,9 +117,9 @@ public class TabGener {
 
 	// test all modules together
 	/**
-	 * 
-	 * @param args
-	 * @throws IOException
+	 * Test
+	 * @param args-main method
+	 * @throws IOException if stream to aFile cannot be written to or closed.
 	 */
 	public static void main(String[] args) throws IOException {
 
