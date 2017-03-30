@@ -6,7 +6,7 @@ import java.util.Vector;
 /**
  * Project Information*
  * -------------------* 
- * Name: Finager
+ * Name: Finager*
  * Course Code: CS 2XB3* 
  * Lab Section: 01* 
  * The {@code Entry} class provides constructor to read from the expenditure data
@@ -21,7 +21,7 @@ public class Entry {
 	Vector<String> data = new Vector<String>();
 	Vector<String> output = new Vector<String>();//Used to store predicted expenditure of all category
        /**
-        * Entry constructor use to read from the expenditure data
+        * Entry constructor use to read from the expenditure data.
         * 1.skip useless information
         * 2.store useful information to arrays when the year is increasing
         * 3.otherwise use LinearRegression algorithm predicts the expenditure for a given year
@@ -60,20 +60,20 @@ public class Entry {
 					continue;
 
 				}
-                                //Save the year information
+                                //save the year information
 				year[j] = Double.parseDouble(item[0]);
 				checker = year[j];
-				//Save the place information-which province
+				//save the place information-which province
 				information[0] = item[1];
-				//Other information from data
+				//other information from data
 				information[1] = item[item.length - 2];
 				information[2] = item[item.length - 3];
-				//Save the category information
+				//save the category information
 				information[3] = item[item.length - 4];
 				i++;
 				j++;
 			}
-                        // Use LinearRegression algorithm predicts the expenditure for a given year when the year is not increasing 
+                        // use LinearRegression algorithm predicts the expenditure for a given year when the year is not increasing 
 			else {
 				checker = Double.parseDouble(item[0]);
 				realyear = Arrays.copyOfRange(year, 0, i);
@@ -93,8 +93,8 @@ public class Entry {
 
 	}
        /**
-        * Get the information of predicted expenditure of all category from output Vector of string
-        * @return-The predicted expenditure of all category
+        * Get the information of predicted expenditure of all category from output Vector of string.
+        * @return-The predicted expenditure of all category.
         */
 	public Vector<String> getoutput() { 
 
@@ -120,6 +120,7 @@ public class Entry {
 			System.out.println(test.output.get(i));
 
 		}
+		System.out.println(test.output.size());
 		reader.close();
 	}
 
